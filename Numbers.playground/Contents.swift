@@ -7,39 +7,36 @@
 import UIKit
 
 /*
- Problem 4
- https://projecteuler.net/problem=4
+ Problem 5
+ https://projecteuler.net/problem=5
  
- A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+ 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
  
- Find the largest palindrome made from the product of two 3-digit numbers.
+ What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
 
-func checkPalindrome(input: Int) -> Bool {
-    if Array(String(input).characters).reverse() == Array(String(input).characters) {
-        return true
-    } else {
-        return false
-    }
-}
+var min: Int = 1
+var max: Int = 20
+var found: Bool = false
+var value: Int = max
+var index: Int = 1
 
-var min = 100
-var max = 999
-var palindromes: [Int] = []
-
-for firstNum in min...max {
-    print(firstNum)
-    for secondNum in min...max {
-        if checkPalindrome(firstNum * secondNum) {
-            palindromes.append(firstNum * secondNum)
+while found == false {
+    value = max * 17 * 7 * 13 * 3 * 11 * index
+    print(value)
+    var valid: Bool = true
+    var divisor: Int = min
+    while valid == true {
+        if value % divisor == 0 {
+            if (divisor == max) {
+                print(value, "is the lowest number divisible by all numbers from", min, "to", max)
+                found = true
+                valid = false
+            }
+            divisor += 1
+        } else {
+            valid = false
         }
     }
+    index += 1
 }
-
-var maxPalindrome: Int = 0
-for value in palindromes {
-    if value > maxPalindrome {
-        maxPalindrome = value
-    }
-}
-print("Largest palindrome produced by the product of two 3-digit numbers is: \(maxPalindrome)")
