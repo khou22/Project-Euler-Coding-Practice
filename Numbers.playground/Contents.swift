@@ -7,54 +7,39 @@
 import UIKit
 
 /*
- Problem 3
- https://projecteuler.net/problem=3
+ Problem 4
+ https://projecteuler.net/problem=4
  
- The prime factors of 13195 are 5, 7, 13 and 29.
+ A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
  
- What is the largest prime factor of the number 600851475143 ?
+ Find the largest palindrome made from the product of two 3-digit numbers.
 */
 
-let number = 600851475143
-//let number = 13195
-//let number = 100
-var checking:Bool = true
-var factors:[Int]=[], primeNumbers:[Int] = [], primeFactors:[Int] = []
-
-// Get factors
-var reducedNumber:Int = number
-var currentNumber:Int = 1
-while checking {
-    if (reducedNumber % currentNumber) == 0 {
-        factors.append(currentNumber)
-        reducedNumber = reducedNumber/currentNumber
-        print(reducedNumber)
+func checkPalindrome(input: Int) -> Bool {
+    if Array(String(input).characters).reverse() == Array(String(input).characters) {
+        return true
+    } else {
+        return false
     }
-    if (currentNumber > reducedNumber) {
-        checking = false
-    }
-    currentNumber += 1
 }
 
-// Check to see if prime
-for (index, factor) in factors.enumerate() {
-    var currentIndex = 2
-    var checking:Bool = true
-    while checking {
-        if (factor % currentIndex) == 0 {
-            // Not a prime number
-            print(factor, "is not prime")
-            checking = false
-        }
-        currentIndex += 1
-        if (currentIndex > (factor/2)) {
-            // Is a prime number
-            print(factor, "is a prime number")
-            primeFactors.append(factor)
-            checking = false
+var min = 100
+var max = 999
+var palindromes: [Int] = []
+
+for firstNum in min...max {
+    print(firstNum)
+    for secondNum in min...max {
+        if checkPalindrome(firstNum * secondNum) {
+            palindromes.append(firstNum * secondNum)
         }
     }
 }
 
-print(primeFactors)
-print("Largest prime factor of", number, "is", primeFactors[primeFactors.count - 1])
+var maxPalindrome: Int = 0
+for value in palindromes {
+    if value > maxPalindrome {
+        maxPalindrome = value
+    }
+}
+print("Largest palindrome produced by the product of two 3-digit numbers is: \(maxPalindrome)")
