@@ -7,36 +7,36 @@
 import UIKit
 
 /*
- Problem 5
- https://projecteuler.net/problem=5
+ Problem 6
+ https://projecteuler.net/problem=6
  
- 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+ The sum of the squares of the first ten natural numbers is,
  
- What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+ 1^2 + 2^2 + ... + 10^2 = 385
+ The square of the sum of the first ten natural numbers is,
+ 
+ (1 + 2 + ... + 10)^2 = 552 = 3025
+ Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+ 
+ Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 */
 
-var min: Int = 1
-var max: Int = 20
-var found: Bool = false
-var value: Int = max
-var index: Int = 1
+var max: Int = 100
+var sumOfSquares: Int = 0
+var sum: Int = 0
 
-while found == false {
-    value = max * 17 * 7 * 13 * 3 * 11 * index
-    print(value)
-    var valid: Bool = true
-    var divisor: Int = min
-    while valid == true {
-        if value % divisor == 0 {
-            if (divisor == max) {
-                print(value, "is the lowest number divisible by all numbers from", min, "to", max)
-                found = true
-                valid = false
-            }
-            divisor += 1
-        } else {
-            valid = false
-        }
-    }
-    index += 1
+for currentNum in 0...max {
+    var currentExponent = pow(Double(currentNum), Double(2))
+    sumOfSquares += Int(currentExponent)
+    
+    sum += currentNum
 }
+
+var squareOfSum: Int = Int(pow(Double(sum), Double(2)))
+
+print("Sum of squares:", sumOfSquares)
+print("Square of sums:", squareOfSum)
+
+var difference: Int = squareOfSum - sumOfSquares
+
+print("Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum: \(difference)")
