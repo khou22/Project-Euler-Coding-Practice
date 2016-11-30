@@ -9,6 +9,7 @@ Note: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 
 */
 
+// Strings to use in concatinations
 var onesStrings = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 var tensStrings = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
 var teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
