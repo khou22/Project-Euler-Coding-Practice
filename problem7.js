@@ -6,7 +6,7 @@ var order = 10001; // 10,001st prime number
 
 var primes = []; // Empty array of primes
 var currentNumber = 2; // Number checking for prime (0, 1 are not primes)
-var counter = 0;
+var counter = 0; // Counter variable
 
 while (counter < order) {
   var prime = true;
