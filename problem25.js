@@ -29,7 +29,7 @@ var index = 1;
 var previous = 0;
 var current = 1;
 
-var numDigits = 1000;
+var numDigits = 3;
 
 while (!found) {
   console.log("F" + index + " = " + current);
