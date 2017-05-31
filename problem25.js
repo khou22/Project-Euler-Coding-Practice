@@ -23,6 +23,28 @@
   What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 */
 
+// Try stint library for large integers?
+/*
+> var strint = require("./strint");
+> strint.add("9007199254740992", "1")
+  '9007199254740993'
+
+Other operations
+  lt(x, y): is x < y (“less than”)?
+  le(x, y): is x ≤ y (“less or equal”)?
+  gt(x, y): is x > y (“greater than”)?
+  ge(x, y): is x ≥ y (“greater or equal”)?
+  eq(x, y): is x = y (“equals”)?
+  add(x, y)
+  sub(x, y)
+  mul(x, y)
+  div(x, y)
+  abs(x)
+  isNegative(x)
+  isPositive(x)
+  negate(x)
+*/
+
 var found = false;
 
 var index = 1;
